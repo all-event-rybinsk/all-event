@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ИвентОлл — агентство событий и продвижения</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Шапка */
+
+    header {
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .header-inner {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 35px;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Фото */
+
+    .hero {
+      width: 100%;
+      height: 500px;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
+        url("event.jpg") center / cover no-repeat;
+    }
+
+    /* Общие секции */
+
+    section {
+      padding: 80px 0;
+    }
+
+    h2 {
+      margin: 0 0 30px;
+      font-size: 32px;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    p {
+      margin: 0 0 20px;
+    }
+
+    /* О нас */
+
+    .about {
+      max-width: 800px;
+    }
+
+    .about-lead {
+      margin-bottom: 25px;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.25;
+    }
+
+    /* Услуги */
+
+    .services {
+      background: #f4f4f4;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      min-height: 180px;
+      padding: 25px;
+      border: 1px solid #ccc;
+      background: #fff;
+      display: flex;
+      align-items: flex-end;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    /* Текстовый блок */
+
+    .description {
+      max-width: 900px;
+    }
+
+    /* Контакты */
+
+    .contacts {
+      background: #f4f4f4;
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .phone {
+      display: inline-block;
+      margin-bottom: 25px;
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social {
+      width: 44px;
+      height: 44px;
+      border: 1px solid #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .social:hover {
+      background: #222;
+      color: #fff;
+    }
+
+    /* Форма */
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #bbb;
+      border-radius: 0;
+      background: #fff;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      width: fit-content;
+      padding: 14px 28px;
+      border: 0;
+      background: #222;
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    /* Подвал */
+
+    footer {
+      padding: 40px 0;
+      background: #222;
+      color: #ccc;
+      font-size: 13px;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid #555;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    /* Адаптив */
+
+    @media (max-width: 800px) {
+      .header-inner {
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 15px 25px;
+      }
+
+      .hero {
+        height: 350px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        height: 280px;
+      }
+
+      .about-lead {
+        font-size: 25px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container header-inner">
+
+      <a href="#" class="logo">ИвентОлл</a>
+
+      <nav>
+        <a href="#about">О НАС</a>
+        <a href="#services">УСЛУГИ</a>
+        <a href="#contacts">КОНТАКТЫ</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- Место под главное фото -->
+    <div class="hero"></div>
+
+
+    <!-- О нас -->
+    <section id="about">
+      <div class="container">
+
+        <div class="about">
+
+          <h2>О нас</h2>
+
+          <div class="about-lead">
+            Создаем события, продвигаем бренды
+          </div>
+
+          <p>
+            «ИвентОлл» — ивент и промоушен агентство.
+          </p>
+
+          <p>
+            Микс из специалистов в сфере: организации и проведения мероприятий,
+            продвижения и рекламы, маркетологов, креативщиков, дизайнеров,
+            техников и звукорежиссеров.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Услуги -->
+    <section class="services" id="services">
+      <div class="container">
+
+        <h2>Наши услуги</h2>
+
+        <div class="services-grid">
+
+          <div class="service-card">
+            Организация мероприятия
+          </div>
+
+          <div class="service-card">
+            Техническое оснащение
+          </div>
+
+          <div class="service-card">
+            Ведущий и персонал
+          </div>
+
+          <div class="service-card">
+            Онлайн-трансляция
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Подробное описание -->
+    <section>
+      <div class="container">
+
+        <div class="description">
+
+          <p>
+            <strong>ИвентОлл</strong> — агентство событий и продвижения.
+            Микс из специалистов в сфере: организации и проведения мероприятий,
+            продвижения и рекламы, маркетологов, креативщиков, дизайнеров,
+            техников и звукорежиссеров.
+          </p>
+
+          <p>
+            Мы с огромным желанием для Вас организуем и проводим любое событие,
+            продвигаем бренды, проводим эффективные промоакции, предоставляем
+            в прокат профессиональное звуковое и световое оборудование и другое
+            оборудование для событий.
+          </p>
+
+          <p>
+            Ярким подтверждением высокого профессионализма наших сотрудников
+            являются положительные отзывы многочисленных компаний и
+            благодарность заказчиков.
+          </p>
+
+          <p>
+            Отдавая приоритет отношениям, для нас важно долгосрочное
+            сотрудничество с клиентами, поэтому мы делаем все, чтобы каждый
+            новый проект стал еще одним шагом к формированию партнерских
+            и дружеских отношений с нашими клиентами.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Контакты -->
+    <section class="contacts" id="contacts">
+      <div class="container">
+
+        <h2>Контакты</h2>
+
+        <div class="contacts-grid">
+
+          <div>
+
+            <a class="phone" href="tel:+79209705780">
+              8 920 970-57-80
+            </a>
+
+            <div class="socials">
+
+              <a href="#" class="social" aria-label="VK">
+                VK
+              </a>
+
+              <a href="#" class="social" aria-label="Telegram">
+                TG
+              </a>
+
+              <a href="#" class="social" aria-label="WhatsApp">
+                WA
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <form action="#" method="post">
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Ваше имя"
+                required
+              >
+
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Телефон"
+                required
+              >
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+              >
+
+              <textarea
+                name="message"
+                placeholder="Сообщение"
+              ></textarea>
+
+              <button type="submit">
+                Отправить
+              </button>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+
+      <p>
+        Отправляя данные на сайте, вы соглашаетесь с
+        <a href="https://mix-group.ru/privacy-policy/" target="_blank">
+          политикой конфиденциальности
+        </a>.
+      </p>
+
+      <p>
+        Не является публичной офертой. Стоимость услуг не является окончательной
+        и может быть изменена в одностороннем порядке.
+      </p>
+
+      <div class="footer-bottom">
+
+        <div>
+          © 2017–2026 ИвентОлл
+        </div>
+
+        <div>
+          <a href="tel:+79209705780">
+            8 920 970-57-80
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
