@@ -2,529 +2,170 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>ИвентОлл — агентство событий и продвижения</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ИвентОлл — организация мероприятий, техническое оснащение, ведущие и онлайн-трансляции.">
+  <title>ИвентОлл — создаём события, продвигаем бренды</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #222;
-      background: #fff;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    .container {
-      width: min(1100px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    /* Шапка */
-
-    header {
-      border-bottom: 1px solid #ddd;
-      background: #fff;
-    }
-
-    .header-inner {
-      min-height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      gap: 35px;
-    }
-
-    nav a {
-      font-size: 14px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Фото */
-
-    .hero {
-      width: 100%;
-      height: 500px;
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
-        url("back.png") center / cover no-repeat;
-    }
-
-    /* Общие секции */
-
-    section {
-      padding: 80px 0;
-    }
-
-    h2 {
-      margin: 0 0 30px;
-      font-size: 32px;
-    }
-
-    h3 {
-      margin-top: 0;
-    }
-
-    p {
-      margin: 0 0 20px;
-    }
-
-    /* О нас */
-
-    .about {
-      max-width: 800px;
-    }
-
-    .about-lead {
-      margin-bottom: 25px;
-      font-size: 30px;
-      font-weight: bold;
-      line-height: 1.25;
-    }
-
-    /* Услуги */
-
-    .services {
-      background: #f4f4f4;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      min-height: 180px;
-      padding: 25px;
-      border: 1px solid #ccc;
-      background: #fff;
-      display: flex;
-      align-items: flex-end;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    /* Текстовый блок */
-
-    .description {
-      max-width: 900px;
-    }
-
-    /* Контакты */
-
-    .contacts {
-      background: #f4f4f4;
-    }
-
-    .contacts-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-
-    .phone {
-      display: inline-block;
-      margin-bottom: 25px;
-      font-size: 28px;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .socials {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social {
-      width: 44px;
-      height: 44px;
-      border: 1px solid #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .social:hover {
-      background: #222;
-      color: #fff;
-    }
-
-    /* Форма */
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #bbb;
-      border-radius: 0;
-      background: #fff;
-      font: inherit;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    button {
-      width: fit-content;
-      padding: 14px 28px;
-      border: 0;
-      background: #222;
-      color: #fff;
-      font: inherit;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #444;
-    }
-
-    /* Подвал */
-
-    footer {
-      padding: 40px 0;
-      background: #222;
-      color: #ccc;
-      font-size: 13px;
-    }
-
-    footer p {
-      margin-bottom: 10px;
-    }
-
-    footer a {
-      color: #fff;
-    }
-
-    .footer-bottom {
-      margin-top: 25px;
-      padding-top: 25px;
-      border-top: 1px solid #555;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    /* Адаптив */
-
-    @media (max-width: 800px) {
-      .header-inner {
-        padding: 20px 0;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        gap: 15px 25px;
-      }
-
-      .hero {
-        height: 350px;
-      }
-
-      section {
-        padding: 55px 0;
-      }
-
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .contacts-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        height: 280px;
-      }
-
-      .about-lead {
-        font-size: 25px;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-      }
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font: 18px/1.55 Arial, Helvetica, sans-serif; color: #1c3545; background: white; }
+    .container { width: min(1330px, calc(100% - 48px)); margin: auto; }
+    a { color: inherit; }
+    header { background: #fff; }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 90px; }
+    .logo { font-weight: 900; font-size: 28px; text-decoration: none; letter-spacing: -.04em; }
+    .logo span { color: #f87517; }
+    nav { display: flex; gap: 36px; flex-wrap: wrap; }
+    nav a { font-size: 16px; font-weight: bold; text-decoration: none; }
+    nav a:hover { color: #e66c1b; }
+    .hero { height: min(520px, 45vw); min-height: 250px; background: url('back.png') center center / cover no-repeat; }
+    section { padding: 62px 0; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { line-height: 1.15; }
+    h2 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 800; letter-spacing: .035em; margin-bottom: 28px; }
+    p { margin-bottom: 22px; }
+    .intro h1 { text-transform: uppercase; font-size: clamp(27px, 3.4vw, 44px); letter-spacing: .025em; margin-bottom: 32px; }
+    .intro p { max-width: 1000px; }
+    .services { background: #ddd; padding: 36px 0 58px; }
+    .services-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 34px; }
+    .service-card { background: white; min-width: 0; box-shadow: 0 18px 25px rgba(0,0,0,.04); }
+    .card-visual { position: relative; height: 135px; overflow: hidden; }
+    .card-visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .card-visual::after { content: ''; position: absolute; width: 100%; height: 52px; bottom: -1px; left: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 65' preserveAspectRatio='none'%3E%3Cpath d='M0 23 C45 -6 84 65 156 37 S258 -8 320 46 L320 65 L0 65Z' fill='white'/%3E%3C/svg%3E") bottom / 100% 100% no-repeat; }
+    .service-title { min-height: 130px; padding: 37px 25px 25px; font-size: 22px; line-height: 1.35; }
+    .features h2 { margin-bottom: 22px; }
+    .features-lead { font-weight: bold; margin-bottom: 44px; }
+    .accordion { border-bottom: 1px solid #e3e3e3; }
+    .accordion summary { cursor: pointer; padding: 22px 38px 22px 0; font-weight: 700; font-size: clamp(23px, 2.5vw, 32px); color: #777; list-style: none; position: relative; }
+    .accordion summary::-webkit-details-marker { display: none; }
+    .accordion summary::after { content: '+'; position: absolute; right: 4px; top: 18px; font-size: 30px; font-weight: 400; }
+    .accordion[open] summary::after { content: '−'; }
+    .accordion p { padding: 0 40px 20px 24px; font-size: 18px; color: #1c3545; margin-bottom: 0; }
+    .description { padding-top: 45px; }
+    .description .text { max-width: 1100px; }
+    .contact-section { padding: 62px 0 72px; background: #fff; }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+    .contact-info h2 { margin-bottom: 22px; }
+    .contact-phone { font-size: 28px; font-weight: 700; text-decoration: none; display: inline-block; margin: 2px 0 25px; }
+    .socials { display: flex; gap: 12px; }
+    .socials a { width: 45px; height: 45px; display: grid; place-items: center; text-decoration: none; border: 1px solid #bbb; border-radius: 50%; font-size: 13px; font-weight: bold; }
+    .socials a:hover { background: #f5f5f5; }
+    .contact-form h2 { font-size: 32px; font-weight: 400; text-align: center; letter-spacing: 0; margin-bottom: 6px; }
+    .contact-form .subtitle { text-align: center; font-size: 18px; line-height: 1.25; color: #444; border-bottom: 1px solid #e5e5e5; padding-bottom: 22px; margin-bottom: 20px; }
+    form { display: grid; gap: 18px; }
+    input:not([type=checkbox]), textarea { font: inherit; font-size: 17px; border: 1px solid transparent; background: #f7f7f7; padding: 18px 14px; width: 100%; border-radius: 4px; color: #222; }
+    input:focus, textarea:focus { outline: 1px solid #1755ca; }
+    textarea { min-height: 127px; resize: vertical; }
+    .consent { display: flex; align-items: flex-start; gap: 8px; font-size: 15px; line-height: 1.45; color: #8292a8; }
+    .consent input { margin-top: 4px; accent-color: #f56829; flex-shrink: 0; }
+    .submit { width: 100%; background: #1656cd; color: #fff; font: bold 19px Arial, sans-serif; border: none; border-radius: 4px; padding: 20px; cursor: pointer; }
+    .submit:hover { background: #0d43b2; }
+    .form-status { display: none; padding: 14px; text-align: center; background: #e9f8ec; color: #176b2f; border: 1px solid #a6dfb2; border-radius: 4px; }
+    .form-status.visible { display: block; }
+    footer { background: #001018; color: white; text-align: center; padding: 48px 20px 38px; font-size: 18px; }
+    footer .container { max-width: 900px; }
+    footer p { margin-bottom: 29px; }
+    footer a { color: #009bc8; text-decoration: none; }
+    footer .copyright { margin: 32px 0 0; }
+    @media(max-width: 900px) { .services-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; } .contact-layout { grid-template-columns: 1fr; gap: 35px; } .hero { height: 340px; } }
+    @media(max-width: 550px) { body { font-size: 16px; } .container { width: min(100% - 32px, 1330px); } .header-inner { padding: 18px 0; flex-direction: column; align-items: flex-start; } nav { gap: 15px; } nav a { font-size: 13px; } .hero { height: 245px; min-height: 0; } section { padding: 40px 0; } .services-grid { grid-template-columns: 1fr; } .card-visual { height: 180px; } .service-title { min-height: 95px; padding-top: 18px; } .accordion p { padding-left: 6px; } footer { font-size: 15px; } }
   </style>
 </head>
-
 <body>
-
   <header>
     <div class="container header-inner">
-
-      <a href="#" class="logo">ИвентОлл</a>
-
-      <nav>
+      <a class="logo" href="#top">Ивент<span>О</span>лл</a>
+      <nav aria-label="Основная навигация">
         <a href="#about">О НАС</a>
         <a href="#services">УСЛУГИ</a>
         <a href="#contacts">КОНТАКТЫ</a>
       </nav>
-
     </div>
   </header>
-
-
-  <main>
-
-    <!-- Место под главное фото -->
-    <div class="hero"></div>
-
-
-    <!-- О нас -->
-    <section id="about">
+  <main id="top">
+    <div class="hero" role="img" aria-label="Команда в костюмах на фоне фейерверка и воздушных шаров"></div>
+    <section id="about" class="intro">
       <div class="container">
-
-        <div class="about">
-
-          <h2>О нас</h2>
-
-          <div class="about-lead">
-            Создаем события, продвигаем бренды
-          </div>
-
-          <p>
-            «ИвентОлл» — ивент и промоушен агентство.
-          </p>
-
-          <p>
-            Микс из специалистов в сфере: организации и проведения мероприятий,
-            продвижения и рекламы, маркетологов, креативщиков, дизайнеров,
-            техников и звукорежиссеров.
-          </p>
-
-        </div>
-
+        <h1>Создаем события, продвигаем бренды</h1>
+        <p>«ИвентОлл» — ивент и промоушен агентство.</p>
+        <p>Микс из специалистов в сфере:<br>
+          - организации и проведения мероприятий,<br>
+          - продвижения и рекламы,<br>
+          - маркетологов, креативщиков, дизайнеров, техников и звукорежиссеров.</p>
+        <p>Всех тех, чьи глаза горят, чтобы сделать ваше мероприятие уникальным.</p>
       </div>
     </section>
-
-
-    <!-- Услуги -->
-    <section class="services" id="services">
+    <section class="services" id="services" aria-label="Наши услуги">
       <div class="container">
-
-        <h2>Наши услуги</h2>
-
         <div class="services-grid">
-
-          <div class="service-card">
-            Организация мероприятия
-          </div>
-
-          <div class="service-card">
-            Техническое оснащение
-          </div>
-
-          <div class="service-card">
-            Ведущий и персонал
-          </div>
-
-          <div class="service-card">
-            Онлайн-трансляция
-          </div>
-
+          <article class="service-card"><div class="card-visual"><img src="event.png" alt="Банкетный зал" loading="lazy"></div><div class="service-title">Организация мероприятия</div></article>
+          <article class="service-card"><div class="card-visual"><img src="technical.png" alt="Сценическое световое оборудование" loading="lazy"></div><div class="service-title">Техническое оснащение</div></article>
+          <article class="service-card"><div class="card-visual"><img src="host.png" alt="Ведущий с микрофоном" loading="lazy"></div><div class="service-title">Ведущий и персонал</div></article>
+          <article class="service-card"><div class="card-visual"><img src="live.png" alt="Камера на онлайн-трансляции" loading="lazy"></div><div class="service-title">Онлайн-трансляция</div></article>
         </div>
-
       </div>
     </section>
-
-
-    <!-- Подробное описание -->
-    <section>
+    <section class="features" id="features">
       <div class="container">
-
-        <div class="description">
-
-          <p>
-            <strong>ИвентОлл</strong> — агентство событий и продвижения.
-            Микс из специалистов в сфере: организации и проведения мероприятий,
-            продвижения и рекламы, маркетологов, креативщиков, дизайнеров,
-            техников и звукорежиссеров.
-          </p>
-
-          <p>
-            Мы с огромным желанием для Вас организуем и проводим любое событие,
-            продвигаем бренды, проводим эффективные промоакции, предоставляем
-            в прокат профессиональное звуковое и световое оборудование и другое
-            оборудование для событий.
-          </p>
-
-          <p>
-            Ярким подтверждением высокого профессионализма наших сотрудников
-            являются положительные отзывы многочисленных компаний и
-            благодарность заказчиков.
-          </p>
-
-          <p>
-            Отдавая приоритет отношениям, для нас важно долгосрочное
-            сотрудничество с клиентами, поэтому мы делаем все, чтобы каждый
-            новый проект стал еще одним шагом к формированию партнерских
-            и дружеских отношений с нашими клиентами.
-          </p>
-
-        </div>
-
+        <h2>ПОЧЕМУ МЫ?</h2>
+        <p class="features-lead">Ряд особенностей компании ИвентОлл:</p>
+        <details class="accordion"><summary>1. Организация под ключ</summary><p>Берём на себя все этапы подготовки мероприятия: от разработки концепции и подбора площадки до технического оснащения и координации персонала. Вам остаётся наслаждаться результатом.</p></details>
+        <details class="accordion"><summary>2. Команда профессионалов</summary><p>В нашей команде работают организаторы, маркетологи, дизайнеры, ведущие, технические специалисты и звукорежиссёры. Каждый отвечает за своё направление.</p></details>
+        <details class="accordion"><summary>3. События любого масштаба</summary><p>Организуем корпоративы, конференции, презентации, промоакции и частные праздники. Подбираем решения с учётом формата мероприятия, количества гостей и бюджета.</p></details>
+        <details class="accordion"><summary>4. Индивидуальный подход</summary><p>Не работаем по шаблонам. Учитываем ваши пожелания, предлагаем оригинальные идеи и уделяем внимание деталям. Наша цель — сделать каждое событие особенным.</p></details>
       </div>
     </section>
-
-
-    <!-- Контакты -->
-    <section class="contacts" id="contacts">
-      <div class="container">
-
-        <h2>Контакты</h2>
-
-        <div class="contacts-grid">
-
-          <div>
-
-            <a class="phone" href="tel:+79209705780">
-              8 920 970-57-80
-            </a>
-
-            <div class="socials">
-
-              <a href="#" class="social" aria-label="VK">
-                VK
-              </a>
-
-              <a href="#" class="social" aria-label="Telegram">
-                TG
-              </a>
-
-              <a href="#" class="social" aria-label="WhatsApp">
-                WA
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <div>
-
-            <form action="#" method="post">
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Ваше имя"
-                required
-              >
-
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Телефон"
-                required
-              >
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-              >
-
-              <textarea
-                name="message"
-                placeholder="Сообщение"
-              ></textarea>
-
-              <button type="submit">
-                Отправить
-              </button>
-
-            </form>
-
-          </div>
-
-        </div>
-
+    <section class="description" aria-label="О компании подробнее">
+      <div class="container text">
+        <p>ИвентОлл — агентство событий и продвижения. Микс из специалистов в сфере: организации и проведения мероприятий, продвижения и рекламы, маркетологов, креативщиков, дизайнеров, техников и звукорежиссеров.</p>
+        <p>Мы с огромным желанием для Вас организуем и проводим любое событие, продвигаем бренды, проводим эффективные промоакции, предоставляем в прокат профессиональное звуковое и световое оборудование и другое оборудование для событий.</p>
+        <p>Ярким подтверждением высокого профессионализма наших сотрудников являются положительные отзывы многочисленных компаний и благодарность заказчиков.</p>
+        <p>Отдавая приоритет отношениям, для нас важно долгосрочное сотрудничество с клиентами, поэтому мы делаем все, чтобы каждый новый проект стал еще одним шагом к формированию партнерских и дружеских отношений с нашими клиентами.</p>
       </div>
     </section>
-
+    <section class="contact-section" id="contacts">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <h2>КОНТАКТЫ</h2>
+          <a class="contact-phone" href="tel:+79209705780">8 920 970-57-80</a>
+          <div class="socials" aria-label="Социальные сети">
+            <a href="#" title="Ссылка на VK не указана" aria-label="ВКонтакте">VK</a>
+            <a href="#" title="Ссылка на Telegram не указана" aria-label="Telegram">TG</a>
+            <a href="#" title="Ссылка на WhatsApp не указана" aria-label="WhatsApp">WA</a>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h2>Обратная связь</h2>
+          <p class="subtitle">Поделитесь мнением о нашей работе или задайте нам любой<br> интересующий вас вопрос в поле комментарий</p>
+          <form id="feedback-form">
+            <input name="first_name" type="text" placeholder="Имя" aria-label="Имя" required>
+            <input name="last_name" type="text" placeholder="Фамилия" aria-label="Фамилия">
+            <input name="phone" type="tel" value="+7" aria-label="Телефон" required pattern="\+7[0-9 ()-]{10,18}" title="Введите номер после +7">
+            <input name="email" type="email" placeholder="E-mail" aria-label="E-mail" required>
+            <textarea name="comment" placeholder="Комментарий" aria-label="Комментарий"></textarea>
+            <label class="consent"><input type="checkbox" required><span>Нажимая кнопку «Отправить», я даю своё согласие на обработку моих персональных данных в соответствии с <a href="https://mix-group.ru/privacy-policy/" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a>.</span></label>
+            <button class="submit" type="submit">Отправить</button>
+            <div id="form-status" class="form-status" role="status" aria-live="polite">Отправка успешна! Спасибо за ваше сообщение.</div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
-
-
   <footer>
     <div class="container">
-
-      <p>
-        Отправляя данные на сайте, вы соглашаетесь с
-        <a href="https://mix-group.ru/privacy-policy/" target="_blank">
-          политикой конфиденциальности
-        </a>.
-      </p>
-
-      <p>
-        Не является публичной офертой. Стоимость услуг не является окончательной
-        и может быть изменена в одностороннем порядке.
-      </p>
-
-      <div class="footer-bottom">
-
-        <div>
-          © 2017–2026 ИвентОлл
-        </div>
-
-        <div>
-          <a href="tel:+79209705780">
-            8 920 970-57-80
-          </a>
-        </div>
-
-      </div>
-
+      <p>Отправляя данные на сайте, вы соглашаетесь с <a href="https://mix-group.ru/privacy-policy/" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a>.</p>
+      <p>Не является публичной офертой. Стоимость услуг не является окончательной и может быть изменена в одностороннем порядке.</p>
+      <p class="copyright">© 2017–2026 ИвентОлл</p>
+      <p><a href="tel:+79209705780">8 920 970-57-80</a></p>
     </div>
   </footer>
-
+  <script>
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (!this.reportValidity()) return;
+      document.getElementById('form-status').classList.add('visible');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
